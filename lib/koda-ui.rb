@@ -10,12 +10,12 @@ module Koda
 
       def document_to_hash(koda_document)
         hash = koda_document.data.dup
-        hash.merge({
+        hash.merge({'_meta' => {
                      'type' => koda_document.type,
                      'uri' => koda_document.uri,
                      'alias' => koda_document.alias,
                      'name' => koda_document.name
-                   })
+                   }})
       end
 
       def all
