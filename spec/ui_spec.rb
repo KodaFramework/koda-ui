@@ -15,8 +15,8 @@ describe Koda::UI::Helpers do
       document = mock('document')
       document.stub(:data).and_return(data)
       document.stub(:url).and_return('/test/url.json')
-      document.stub(:alias).and_return('url')
-      document.stub(:name).and_return('url.json')
+      document.stub(:url_name).and_return('url')
+      document.stub(:file_name).and_return('url.json')
       document
     end
     describe "all" do
@@ -38,7 +38,7 @@ describe Koda::UI::Helpers do
     describe "single" do
       it "queries for a specific document" do
         expected_document = stub_document name: 'ferrari'
-        Koda::Document.should_receive(:where).with(url: '/cars/ferrari.json').and_return([expected_document])
+        Koda::Document.should_receive(:where).with(uri: '/cars/ferrari.json').and_return([expected_document])
         car = @context.model.cars.single('ferrari')
         car[:name].should == 'ferrari'
       end

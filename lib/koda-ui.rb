@@ -1,4 +1,4 @@
-require 'koda-content/models/document'
+require 'koda-api/models/document'
 
 module Koda
   module UI
@@ -12,8 +12,8 @@ module Koda
         hash = koda_document.data.dup
         hash.merge({
           'url' => koda_document.url,
-          'alias' => koda_document.alias,
-          'name' => koda_document.name
+          'url_name' => koda_document.url_name,
+          'file_name' => koda_document.file_name
         })
       end
 
@@ -22,7 +22,7 @@ module Koda
       end
 
       def single(name)
-        document = Koda::Document.where(url: "#{@type}/#{name}.json").first
+        document = Koda::Document.where(uri: "#{@type}/#{name}.json").first
         document_to_hash document unless document.nil?
       end
 

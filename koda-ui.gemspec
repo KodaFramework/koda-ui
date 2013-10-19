@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.description = "Koda UI - helpers to build a koda backed website"
 
   s.required_rubygems_version = ">= 1.3.6"
-  s.add_dependency 'koda-content'
+  s.add_dependency 'koda-api'
 
   s.add_development_dependency 'rspec', '>= 2.8'
   s.add_development_dependency 'rake'
