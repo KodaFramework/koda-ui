@@ -15,9 +15,9 @@ describe Koda::UI::Helpers do
       document = mock('document')
       document.stub(:data).and_return(data)
       document.stub(:type).and_return('/test')
-      document.stub(:uri).and_return('/test/uri.json')
-      document.stub(:alias).and_return('url')
-      document.stub(:name).and_return('url.json')
+      document.stub(:url).and_return('/test/url.json')
+      document.stub(:url_name).and_return('url')
+      document.stub(:file_name).and_return('url.json')
       document
     end
     describe "all" do

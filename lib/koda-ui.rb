@@ -1,4 +1,4 @@
-require 'koda-content/models/document'
+require 'koda-api/models/document'
 
 module Koda
   module UI
@@ -12,9 +12,9 @@ module Koda
         hash = koda_document.data.dup
         hash.merge({'_meta' => {
                      'type' => koda_document.type,
-                     'uri' => koda_document.uri,
-                     'alias' => koda_document.alias,
-                     'name' => koda_document.name
+                     'url' => koda_document.url,
+                     'url_name' => koda_document.url_name,
+                     'file_name' => koda_document.file_name
                    }})
       end
 
