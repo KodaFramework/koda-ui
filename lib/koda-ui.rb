@@ -1,4 +1,5 @@
 require 'koda-api/models/document'
+require 'koda-ui/hash'
 
 module Koda
   module UI
@@ -9,7 +10,8 @@ module Koda
       end
 
       def document_to_hash(koda_document)
-        hash = koda_document.data.dup
+        hash = Koda::UI::Hash.create koda_document.data.dup
+        #hash = koda_document.data.dup
         hash.merge({'_meta' => {
                      'type' => koda_document.type,
                      'url' => koda_document.url,
