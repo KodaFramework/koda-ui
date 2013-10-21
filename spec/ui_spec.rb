@@ -40,6 +40,13 @@ describe Koda::UI::Helpers do
         cars = @context.model.fast.cars.all
         cars.length.should == 3
       end
+
+      it "queries child documents of a specific type" do
+        documents = [stub_document, stub_document, stub_document]
+        Koda::Document.should_receive(:where).with(type: '/cars/ferrari').and_return(documents)
+        cars = @context.model.cars('ferrari').all
+        cars.length.should == 3
+      end
     end
 
     describe "single" do

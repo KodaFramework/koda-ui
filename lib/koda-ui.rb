@@ -30,7 +30,9 @@ module Koda
       end
 
       def method_missing(name, *args, &block)
-        Context.new File.join(@type, name.to_s)
+        path = File.join(@type, name.to_s)
+        path = path + '/' + args[0] if (args.length > 0)
+        Context.new path
       end
     end
     module Helpers
