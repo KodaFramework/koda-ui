@@ -16,24 +16,24 @@ Then in your routes you can access data from the model:
 
 ```ruby
   get '/cars/?' do
-    @cars = model.cars.all
+    @cars = koda.query('/cars')
 
     erb :cars
   end
 ```
 
 Which will return an array of hashes with document summary info.
-If you were to get this using the rest api it would be equivelant to calling `/cars`.
+If you were to get this using the rest api it would be equivalent to calling `/cars`.
 
 You can also get a particular document
 
 ```ruby
   get '/cars/:alias/?' do |car_alias|
-    @car = model.cars.single(car_alias)
+    @car = koda.single("/cars/#{car_alias}")
 
     erb :car
   end
 ```
 
 Which will return a single hash containing the document.
-Again if you were using the rest api it would be equivelant to calling `/cars/:alias.json`.
+Again if you were using the rest api it would be equivalent to calling `/cars/:alias.json`.
